@@ -25,8 +25,8 @@ const useStyles = makeStyles({
 
 interface Props {
     product: Product;
-    addToCart: any;
-    removeFromCart: any;
+    addToCart: (product: Product) => void;
+    removeFromCart: (product: Product) => void;
 }
 
 const ProductCard = (props: Props) => {

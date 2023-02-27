@@ -1,4 +1,4 @@
-Issues for future addressing
+Issues and Features for future addressing
 
 1. Card is not in Navigation bar and is not in global state that can be addressable.
     - Decided not to address it as the time will not be enough. However it is definitely a major first thing to implement as it will help DRY in product components.
@@ -14,6 +14,8 @@ Issues for future addressing
     - requests should have fetch state tracking, can be done with the state manager of choice. Still it is not urgent and is production level implementation.
 7. Use and refactor global styles accordingly
     - All used styles should be put in global styles modules, and the modules should be cleared refactored based on new UI needs. Saves time in development, so should be next thing to do.
+8. UI
+    - UI needs lots of improvement. There is a quick implementation that can be done for usability, cleanness and positioning. It can be done in an hour and will be the next thing I will get on with. And a second UI implementation that covers also UX will take more time so I will leave it for production level.
 
 Issues Fixed
 

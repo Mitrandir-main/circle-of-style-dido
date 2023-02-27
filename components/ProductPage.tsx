@@ -63,8 +63,23 @@ export default function ProductPageComponent(props: Props) {
                 {props.product.description}
             </Typography>
             <Typography variant="h6" component="p">
+                Category: {props.product.category}
+            </Typography>
+
+            <Typography variant="h6" component="p">
                 £ {props.product.price}
             </Typography>
+            {props.product.images &&
+                props.product.images.map((x, index) => {
+                    return (
+                        <CardMedia
+                            key={index}
+                            className={classes.media}
+                            image={x}
+                            title={props.product.name + "image_" + index}
+                        />
+                    );
+                })}
             <CardActions>
                 {isInCart ? (
                     <Button

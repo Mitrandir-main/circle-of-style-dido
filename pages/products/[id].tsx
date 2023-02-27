@@ -8,6 +8,7 @@ import {
     Typography,
 } from "@material-ui/core";
 import { Product } from "../../types";
+import ProductPageComponent from "@/components/ProductPage";
 
 function ProductPage() {
     const router = useRouter();
@@ -29,15 +30,9 @@ function ProductPage() {
     }, [id]);
 
     return (
-        <Container>
+        <Container maxWidth="lg">
             {product ? (
-                <Card>
-                    <CardContent>
-                        <Typography>{product.name}</Typography>
-                        <Typography>{product.description}</Typography>
-                        <Typography>£ {product.price}</Typography>
-                    </CardContent>
-                </Card>
+                <ProductPageComponent product={product} />
             ) : (
                 <Grid>
                     <h3>Loading...</h3>

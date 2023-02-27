@@ -23,50 +23,48 @@ const useStyles = makeStyles({
     },
 });
 
-const ProductCard = ({
-    product,
-    addToCart,
-    removeFromCart,
-}: {
+interface Props {
     product: Product;
     addToCart: any;
     removeFromCart: any;
-}) => {
+}
+
+const ProductCard = (props: Props) => {
     const classes = useStyles();
     const [isInCart, setIsInCart] = useState(false);
 
     const handleAddToCart = () => {
         setIsInCart(true);
-        addToCart(product);
+        props.addToCart(props.product);
     };
 
     const handleRemoveFromCart = () => {
         setIsInCart(false);
-        removeFromCart(product);
+        props.removeFromCart(props.product);
     };
 
     return (
         <Card className={classes.root}>
-            <Link href={"/products/" + product.id}>
+            <Link href={"/products/" + props.product.id}>
                 <CardActionArea>
                     <CardMedia
                         className={classes.media}
-                        image={product.image}
-                        title={product.name}
+                        image={props.product.image}
+                        title={props.product.name}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                            {product.name}
+                            {props.product.name}
                         </Typography>
                         <Typography
                             variant="body2"
                             color="textSecondary"
                             component="p"
                         >
-                            {product.description}
+                            {props.product.description}
                         </Typography>
                         <Typography variant="h6" component="p">
-                            £ {product.price}
+                            £ {props.product.price}
                         </Typography>
                     </CardContent>
                 </CardActionArea>

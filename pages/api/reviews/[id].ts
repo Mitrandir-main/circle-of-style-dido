@@ -8,7 +8,7 @@ export default function handler(
 ) {
     const { id } = req.query;
 
-    // Find the product with the specified ID in the products array
+    // Find the product reviews with the specified ID in the reviews array
     const productReviews = reviews.filter(
         (p) => p.productId === parseInt(id as string)
     );

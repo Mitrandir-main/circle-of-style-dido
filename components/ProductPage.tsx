@@ -1,15 +1,18 @@
-import { Product } from "@/types";
+import { Product, Review } from "@/types";
 import {
     Button,
     CardActions,
     CardMedia,
+    Divider,
     Grid,
+    ListItem,
     Typography,
     makeStyles,
 } from "@material-ui/core";
 import React, { useState } from "react";
 import Cart from "./Cart";
 import { AddShoppingCart, RemoveShoppingCart } from "@material-ui/icons";
+import moment from "moment";
 
 const useStyles = makeStyles({
     root: {
@@ -23,6 +26,7 @@ const useStyles = makeStyles({
 
 interface Props {
     product: Product;
+    reviews: Review[];
 }
 export default function ProductPageComponent(props: Props) {
     const classes = useStyles();
@@ -47,7 +51,7 @@ export default function ProductPageComponent(props: Props) {
 
     return (
         <div>
-            <Grid item xs={12} sm={3} container justify="flex-end">
+            <Grid item xs={12} sm={3} container>
                 <Cart cartItems={cart} clearCart={clearCart} />
             </Grid>
 
@@ -101,6 +105,35 @@ export default function ProductPageComponent(props: Props) {
                     </Button>
                 )}
             </CardActions>
+            <Typography variant="h6" component="p">
+                Comments:
+            </Typography>
+
+            {props.reviews.map((x) => {
+                return (
+                    <ListItem key={x.id}>
+                        <Grid container spacing={1}>
+                            <Grid item xs={10}>
+                                <Typography variant="h6">{x.name}</Typography>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <Typography variant="subtitle2">
+                                    {moment(x.createdAt).fromNow()}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={2}>
+                                {x.rating}⭐
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Typography variant="body1">
+                                    {x.comment}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Divider />
+                    </ListItem>
+                );
+            })}
         </div>
     );
 }

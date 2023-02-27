@@ -5,6 +5,7 @@ Issues for future addressing
 3. filteredProducts constant should be a state.
 4. Product Card hoover feels strange
 5. Static props in index.tsx are not used in products page
+6. Way of tracking state of fetch request, loading, error, etc.
 
 Issues Fixed
 

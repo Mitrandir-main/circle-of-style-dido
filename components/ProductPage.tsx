@@ -106,7 +106,7 @@ export default function ProductPageComponent(props: Props) {
                 )}
             </CardActions>
             <Typography variant="h6" component="p">
-                Comments:
+                Reviews:
             </Typography>
 
             {props.reviews.map((x) => {
